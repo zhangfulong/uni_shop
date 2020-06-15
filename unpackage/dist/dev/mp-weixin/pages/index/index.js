@@ -127,15 +127,37 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      swipers: [] };
+      swipers: [],
+      goods: [] };
 
   },
   onLoad: function onLoad() {
     this.getSwipers();
+    this.getHotGoods();
   },
   methods: {
     // 获取轮播图数据
@@ -143,7 +165,14 @@ var _default =
                   this.$myRequest({
                     url: '/api/getlunbo' }));case 2:res = _context.sent;
 
-                this.swipers = res.data.message;case 4:case "end":return _context.stop();}}}, _callee, this);}));function getSwipers() {return _getSwipers.apply(this, arguments);}return getSwipers;}() } };exports.default = _default;
+                this.swipers = res.data.message;case 4:case "end":return _context.stop();}}}, _callee, this);}));function getSwipers() {return _getSwipers.apply(this, arguments);}return getSwipers;}(),
+
+    // 获取热门商品列表数据
+    getHotGoods: function () {var _getHotGoods = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  this.$myRequest({
+                    url: '/api/getgoods?pageindex=1' }));case 2:res = _context2.sent;
+
+                this.goods = res.data.message;case 4:case "end":return _context2.stop();}}}, _callee2, this);}));function getHotGoods() {return _getHotGoods.apply(this, arguments);}return getHotGoods;}() } };exports.default = _default;
 
 /***/ }),
 
