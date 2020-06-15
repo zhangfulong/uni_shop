@@ -32,4 +32,31 @@
     height: 100%;
     width: 100%;
 }
+.nav {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.nav .nav_item {
+    width: 25%;
+    text-align: center;
+}
+.nav .nav_item view {
+      width: 120rpx;
+      height: 120rpx;
+      background: #b50e03;
+      -webkit-border-radius: 60rpx;
+              border-radius: 60rpx;
+      margin: 10rpx auto;
+      line-height: 120rpx;
+      color: #fff;
+      font-size: 50rpx;
+}
+.nav .nav_item .icon {
+      font-size: 45rpx;
+}
+.nav .nav_item text {
+      font-size: 30rpx;
+}
 
