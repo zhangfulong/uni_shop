@@ -1,8 +1,10 @@
 <template>
-	<view class="content">
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
+	<view class="home">
+		<swiper indicator-dots>
+			<swiper-item v-for="(item,id) in swipers" :key="id">
+				<image :src="item.img" mode=""></image>
+			</swiper-item>
+		</swiper>
 	</view>
 </template>
 
@@ -10,7 +12,6 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello',
 				swipers: [],
 			}
 		},
@@ -23,26 +24,22 @@
 				const res = await this.$myRequest({
 					url: '/api/getlunbo'
 				})
-				console.log(res)
+				this.swipers = res.data.message
 			}
 		}
 	}
 </script>
 
-<style>
-	.content {
-		text-align: center;
-		height: 400upx;
-	}
-
-	.logo {
-		height: 200upx;
-		width: 200upx;
-		margin-top: 200upx;
-	}
-
-	.title {
-		font-size: 36upx;
-		color: #8f8f94;
+<style lang="scss">
+	.home {
+		swiper{
+			width: 750rpx;
+			height:380rpx;
+			image{
+				height: 100%;
+				width: 100%;
+			}
+		}
+		
 	}
 </style>
