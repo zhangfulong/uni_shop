@@ -128,6 +128,23 @@ createPage(_news.default);
 
 /***/ }),
 
+/***/ "../../../uniApp/uni_shop/main.js?{\"page\":\"pages%2Fnews-detail%2Fnews-detail\"}":
+/*!*******************************************************************************!*\
+  !*** D:/uniApp/uni_shop/main.js?{"page":"pages%2Fnews-detail%2Fnews-detail"} ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../uniApp/uni_shop/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _newsDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/news-detail/news-detail.vue */ "../../../uniApp/uni_shop/pages/news-detail/news-detail.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_newsDetail.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
 /***/ "../../../uniApp/uni_shop/main.js?{\"page\":\"pages%2Fpics%2Fpics\"}":
 /*!*****************************************************************!*\
   !*** D:/uniApp/uni_shop/main.js?{"page":"pages%2Fpics%2Fpics"} ***!

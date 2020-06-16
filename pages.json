@@ -36,6 +36,10 @@
             "path" : "pages/videos/videos",
             "style" : {}
         }
+        ,{
+            "path" : "pages/news-detail/news-detail",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
