@@ -137,17 +137,17 @@ __webpack_require__.r(__webpack_exports__);
       {
         icon: 'iconfont icon-tupian',
         title: '图片',
-        path: '/pages/contact/contact' },
+        path: '/pages/pics/pics' },
 
       {
         icon: 'iconfont icon-shipin',
         title: '资源',
-        path: '/pages/pics/pics' },
+        path: '/pages/videos/videos' },
 
       {
         icon: 'iconfont icon-guanyuwomen',
         title: '关于我们',
-        path: '/pages/videos/videos' }] };
+        path: '/pages/contact/contact' }] };
 
 
 

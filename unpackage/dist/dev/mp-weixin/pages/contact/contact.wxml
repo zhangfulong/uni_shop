@@ -1,1 +1,1 @@
-<view>contact</view>
+<view class="contact"><image class="img" src="https://inews.gtimg.com/newsapp_bt/0/11936982169/1000" mode></image><view class="info"><view data-event-opts="{{[['tap',[['phone',['$event']]]]]}}" bindtap="__e">联系电话：911</view><view>地址：国际航运金融大厦坐落于浦东新区陆家嘴金融贸易区</view><map class="map" name longitude="{{longitude}}" scale="{{scale}}" latitude="{{latitude}}" markers="{{markers}}"></map></view></view>
