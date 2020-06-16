@@ -7,21 +7,9 @@
 		</swiper>
 		<!-- 导航区域 -->
 		<view class="nav">
-			<view class="nav_item">
-				<view class="iconfont icon-shipin"></view>
-				<text>超市</text>
-			</view>
-			<view class="nav_item">
-				<view class="iconfont icon-tupian"></view>
-				<text>图片</text>
-			</view>
-			<view class="nav_item">
-				<view class="iconfont icon-ziyuan"></view>
-				<text>资源</text>
-			</view>
-			<view class="nav_item">
-				<view class="iconfont icon-guanyuwomen"></view>
-				<text>About</text>
+			<view class="nav_item" v-for="(item,index) in navs" :key="index" @click="navItemClick(item.path)">
+				<view :class="item.icon"></view>
+				<text>{{item.title}}</text>
 			</view>
 		</view>
 		<!-- 推荐商品区域 -->
@@ -52,7 +40,29 @@
 		data() {
 			return {
 				swipers: [],
-				goods:[]
+				goods:[],
+				navs:[
+					{
+						icon:'iconfont icon-ziyuan',
+						title:'超市',
+						path:'/pages/goods/goods'
+					},
+					{
+						icon:'iconfont icon-tupian',
+						title:'图片',
+						path:'/pages/contact/contact'
+					},
+					{
+						icon:'iconfont icon-shipin',
+						title:'资源',
+						path:'/pages/pics/pics'
+					},
+					{
+						icon:'iconfont icon-guanyuwomen',
+						title:'关于我们',
+						path:'/pages/videos/videos'
+					}
+				]
 			}
 		},
 		onLoad() {
@@ -73,6 +83,12 @@
 					url:'/api/getgoods?pageindex=1'
 				})
 				this.goods = res.data.message
+			},
+			// 点击icon传送到对应页面
+			navItemClick(url){
+				uni.navigateTo({
+					url
+				})
 			}
 		}
 	}
