@@ -98,7 +98,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var goodsList = function goodsList() {return __webpack_require__.e(/*! import() | components/goods-list/goods-list */ "components/goods-list/goods-list").then(__webpack_require__.bind(null, /*! ../../components/goods-list/goods-list.vue */ "../../../uniApp/uni_shop/components/goods-list/goods-list.vue"));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance");}function _iterableToArray(iter) {if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;}}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var goodsList = function goodsList() {return __webpack_require__.e(/*! import() | components/goods-list/goods-list */ "components/goods-list/goods-list").then(__webpack_require__.bind(null, /*! ../../components/goods-list/goods-list.vue */ "../../../uniApp/uni_shop/components/goods-list/goods-list.vue"));};var _default =
+
+
+
 
 
 
@@ -111,7 +114,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   data: function data() {
     return {
       pageIndex: 1,
-      goodss: [] };
+      goodss: [],
+      flag: false };
 
   },
   onLoad: function onLoad() {
@@ -119,16 +123,34 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   },
   methods: {
     // 获取商品列表的数据
-
-    getGoodsList: function () {var _getGoodsList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+    getGoodsList: function () {var _getGoodsList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(callback) {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   this.$myRequest({
                     url: '/api/getgoods?pageindex=' + this.pageIndex }));case 2:res = _context.sent;
 
-                this.goodss = res.data.message;case 4:case "end":return _context.stop();}}}, _callee, this);}));function getGoodsList() {return _getGoodsList.apply(this, arguments);}return getGoodsList;}() },
+                this.goodss = [].concat(_toConsumableArray(this.goodss), _toConsumableArray(res.data.message));
+                callback && callback();case 5:case "end":return _context.stop();}}}, _callee, this);}));function getGoodsList(_x) {return _getGoodsList.apply(this, arguments);}return getGoodsList;}() },
 
 
   components: {
-    goodsList: goodsList } };exports.default = _default;
+    goodsList: goodsList },
+
+  // 底部加载新数据
+  onReachBottom: function onReachBottom() {
+    if (this.goodss.length < this.pageIndex * 10) return this.flag = true;
+    console.log('bottom');
+    this.pageIndex++;
+    this.getGoodsList();
+  },
+  // 下拉刷新
+  onPullDownRefresh: function onPullDownRefresh() {var _this = this;
+    this.pageIndex = 1;
+    this.goodss = [];
+    this.flag = false;
+    setTimeout(function () {
+      _this.getGoodsList(function () {return uni.stopPullDownRefresh();});
+    }, 1000);
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
 

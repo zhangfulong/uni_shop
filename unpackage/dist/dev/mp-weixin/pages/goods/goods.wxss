@@ -27,4 +27,11 @@
 .goods_list {
   background: #eee;
 }
+.isover {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
 
