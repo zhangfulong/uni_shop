@@ -17,53 +17,43 @@
 			<view class="tit">
 				推荐商品
 			</view>
-			<view class="goods_list" >
-				<!-- 1 -->
-				<view class="goods_item" v-for="item in goods" :key="item.id">
-					<image :src="item.img_url" mode=""></image>
-					<view class="price">
-						<text>{{item.sell_price}}</text>
-						<text>{{item.market_price}}</text>
-					</view>
-					<view class="name">
-						{{item.title}}
-					</view>
-				</view>
-				
-			</view>
+			<goodList :goods="goods"></goodList>
 		</view>
 	</view>
 </template>
 
 <script>
+	import goodList from '../../components/goods-list/goods-list'
 	export default {
 		data() {
 			return {
 				swipers: [],
-				goods:[],
-				navs:[
-					{
-						icon:'iconfont icon-ziyuan',
-						title:'超市',
-						path:'/pages/goods/goods'
+				goods: [],
+				navs: [{
+						icon: 'iconfont icon-ziyuan',
+						title: '商城',
+						path: '/pages/goods/goods'
 					},
 					{
-						icon:'iconfont icon-tupian',
-						title:'图片',
-						path:'/pages/contact/contact'
+						icon: 'iconfont icon-tupian',
+						title: '图片',
+						path: '/pages/contact/contact'
 					},
 					{
-						icon:'iconfont icon-shipin',
-						title:'资源',
-						path:'/pages/pics/pics'
+						icon: 'iconfont icon-shipin',
+						title: '资源',
+						path: '/pages/pics/pics'
 					},
 					{
-						icon:'iconfont icon-guanyuwomen',
-						title:'关于我们',
-						path:'/pages/videos/videos'
+						icon: 'iconfont icon-guanyuwomen',
+						title: '关于我们',
+						path: '/pages/videos/videos'
 					}
 				]
 			}
+		},
+		components: {
+			goodList
 		},
 		onLoad() {
 			this.getSwipers()
@@ -78,14 +68,14 @@
 				this.swipers = res.data.message
 			},
 			// 获取热门商品列表数据
-			async getHotGoods(){
+			async getHotGoods() {
 				const res = await this.$myRequest({
-					url:'/api/getgoods?pageindex=1'
+					url: '/api/getgoods?pageindex=1'
 				})
 				this.goods = res.data.message
 			},
 			// 点击icon传送到对应页面
-			navItemClick(url){
+			navItemClick(url) {
 				uni.navigateTo({
 					url
 				})
@@ -105,14 +95,16 @@
 				width: 100%;
 			}
 		}
-		
+
 		// nav 
-		.nav{
+		.nav {
 			display: flex;
-			.nav_item{
+
+			.nav_item {
 				width: 25%;
 				text-align: center;
-				view{
+
+				view {
 					width: 120rpx;
 					height: 120rpx;
 					background: $shop-color;
@@ -120,25 +112,28 @@
 					margin: 10rpx auto;
 					line-height: 120rpx;
 					color: #fff;
-					font-size:50rpx; 
+					font-size: 50rpx;
 				}
-				.icon{
-					font-size:45rpx;
+
+				.icon {
+					font-size: 45rpx;
 				}
-				text{
+
+				text {
 					font-size: 30rpx;
-					
+
 				}
 			}
 		}
-		
-		
+
+
 		// hot_goods
-		.hot_goods{
+		.hot_goods {
 			background: #eee;
 			overflow: hidden;
 			margin-top: 10rpx;
-			.tit{
+
+			.tit {
 				height: 100rpx;
 				line-height: 100rpx;
 				color: $shop-color;
@@ -147,47 +142,7 @@
 				background: #fff;
 				margin: 7rpx 0;
 			}
-			// goods
-			.goods_list{
-				padding: 0 15rpx;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-				.goods_item{
-					background: #fff;
-					width: 355rpx;
-					margin: 10rpx 0;
-					padding: 15rpx;
-					box-sizing: border-box;
-					image{
-						width: 80%;
-						height: 300rpx;
-						display: block;
-						margin: auto;
-					}
-					.price{
-						color: $shop-color;
-						font-size: 36rpx;
-						margin: 15rpx 0 10rpx;
-						text:nth-child(2){
-							color: #ccc;
-							font-size: 28rpx;
-							margin-left: 17rpx;
-							text-decoration: line-through;
-						}
-					}
-					.name{
-						font-size: 28rpx;
-						line-height: 50rpx;
-						padding-bottom: 15rpx;
-						padding-top: 10rpx;
-					}
-				}
-			}
 		}
 
 	}
-	
-	
-	
 </style>
