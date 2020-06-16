@@ -14,6 +14,13 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "../../../uni
 var _api = __webpack_require__(/*! ./util/api.js */ "../../../uniApp/uni_shop/util/api.js");function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 _vue.default.prototype.$myRequest = _api.myRequest;
+_vue.default.filter('formatDate', function (date) {
+  var nDate = new Date(date);
+  var year = nDate.getFullYear();
+  var month = nDate.getMonth().toString().padStart(2, 0);
+  var day = nDate.getDay().toString().padStart(2, 0);
+  return year + '-' + month + '-' + day;
+});
 _vue.default.config.productionTip = false;
 
 _App.default.mpType = 'app';
