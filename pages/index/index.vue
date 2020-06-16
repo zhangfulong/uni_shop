@@ -1,6 +1,6 @@
 <template>
 	<view class="home">
-		<swiper indicator-dots>
+		<swiper indicator-dots autoplay="true">
 			<swiper-item v-for="(item,id) in swipers" :key="id">
 				<image :src="item.img" mode=""></image>
 			</swiper-item>
@@ -17,7 +17,7 @@
 			<view class="tit">
 				推荐商品
 			</view>
-			<goodList :goods="goods"></goodList>
+			<goodList :goods="goods" @goodsItemClick="goGoodsDetail"></goodList>
 		</view>
 	</view>
 </template>
@@ -49,7 +49,7 @@
 						title: '关于我们',
 						path: '/pages/contact/contact'
 					}
-				]
+				],
 			}
 		},
 		components: {
@@ -78,6 +78,12 @@
 			navItemClick(url) {
 				uni.navigateTo({
 					url
+				})
+			},
+			// 点击后跳转到商品详情页
+			goGoodsDetail(id) {
+				uni.navigateTo({
+					url: '/pages/goods-detail/goods-detail?id=' + id
 				})
 			}
 		}

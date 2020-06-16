@@ -1,7 +1,7 @@
 <template>
 	<view class="goods_list">
 		<!-- 1 -->
-		<view class="goods_item" v-for="item in goods" :key="item.id">
+		<view class="goods_item" v-for="item in goods" :key="item.id" @click="navigator(item.id)">
 			<image :src="item.img_url" mode=""></image>
 			<view class="price">
 				<text>{{item.sell_price}}</text>
@@ -21,6 +21,12 @@
 		data() {
 			return {
 
+			}
+		},
+		methods:{
+			// 跳转方法
+			navigator(id){
+				this.$emit('goodsItemClick',id)
 			}
 		}
 	}
