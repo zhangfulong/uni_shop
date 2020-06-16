@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
       {
         icon: 'iconfont icon-tupian',
-        title: '图片',
+        title: '社区',
         path: '/pages/pics/pics' },
 
       {

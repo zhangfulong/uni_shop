@@ -36,7 +36,7 @@
 					},
 					{
 						icon: 'iconfont icon-tupian',
-						title: '图片',
+						title: '社区',
 						path: '/pages/pics/pics'
 					},
 					{
